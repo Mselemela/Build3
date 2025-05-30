@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Welcome. Please log in</p>
+    <form>
+      <label for="usernameInput">Username:</label
+      ><input type="text" id="usernameInput" /><br />
+      <label for="passwordInput">Password:</label
+      ><input type="password" id="passwordInput" /><br />
+      <p id="message"></p>
+      <br /><br />
+      <a href="#">Log in</a>
+    </form>
+
+    <script>
+        function verifyUser(){
+            var username = document.getElementById("usernameInput").value;
+            var password = document.getElementById("passwordInput").value;
+        }
+    </script>
+  </body>
+</html>
