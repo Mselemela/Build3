@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS functions</title>
-</head>
-<body>
-<h1 onclick="innerHTML='This is awesome' ">Javascript</h1>
+  </head>
+  <body>
+    <h1 id="heading" onclick="changeText()">Javascript</h1>
     <script>
-
+      function changeText() {
+        if (document.getElementById("heading").innerHTML == "JavaScript") {
+          document.getElementById("heading").innerHTML = "is awesome";
+        } else {
+          document.getElementById("heading").innerHTML = "JavaScript";
+        }
+      }
     </script>
-    
-</body>
+  </body>
 </html>
