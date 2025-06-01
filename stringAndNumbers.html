@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="outputText"></p>
+
+    <script>
+      var text1 = "10";
+      var text2 = "2";
+
+      var num1 = stringTonumber(text1);
+      var numb2 = stringTonumber(text2);
+
+      if (isNaN(num1) || isNaN()) {
+        document.getElementById("outputText").innerHTML =
+          "Enter a valid number";
+      } else document.getElementById("outputText").innerHTML = num1 - num2;
+
+      function stringTonumber(text) {
+        return parseInt(text);
+      }
+    </script>
+  </body>
+</html>
