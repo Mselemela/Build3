@@ -15,24 +15,24 @@
         <td onclick="digitBtnPressed(7)">7</td>
         <td onclick="digitBtnPressed(8)">8</td>
         <td onclick="digitBtnPressed(9)">9</td>
-        <td onclick="">x</td>
+        <td onclick="operatorBtnPressed('x')">x</td>
       </tr>
       <tr>
         <td onclick="digitBtnPressed(4)">4</td>
         <td onclick="digitBtnPressed(5)">5</td>
         <td onclick="digitBtnPressed(6)">6</td>
-        <td onclick="">-</td>
+        <td onclick="operatorBtnPressed('-')">-</td>
       </tr>
       <tr>
         <td onclick="digitBtnPressed(1)">1</td>
         <td onclick="digitBtnPressed(2)">2</td>
         <td onclick="digitBtnPressed(3)">3</td>
-        <td onclick="">+</td>
+        <td onclick="operatorBtnPressed('+')">+</td>
       </tr>
       <tr>
         <td colspan="2" onclick="digitBtnPressed(0)">0</td>
         <td onclick="btnAcPressed()">AC</td>
-        <td>/</td>
+        <td onclick="operatorBtnPressed('/')">/</td>
       </tr>
       <tr>
         <td colspan="4">=</td>
@@ -40,8 +40,9 @@
     </table>
 
     <script>
-      //boolean variable, determaines if the next thing the user inputs shpuld be on a new line.
-      var newLine = true;
+      var newLine = true; //boolean variable, determaines if the next thing the user inputs shpuld be on a new line.
+      var value1;
+      var currentOperator;
 
       //eventhandler for any digit button is pressed
       function digitBtnPressed(button) {
@@ -57,6 +58,13 @@
       //Eventhandler for AC button is pressed
       function btnAcPressed() {
         document.getElementById("inputBox").value = 0;
+        newLine = true;
+      }
+
+      //Eventhandler for operator button is pressed
+      function operatorBtnPressed(operator) {
+        currentOperator = operator;
+        value1 = parseInt(document.getElementById("inputBox").value);
         newLine = true;
       }
     </script>
