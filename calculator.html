@@ -9,34 +9,89 @@
   <body>
     <table border="1">
       <tr>
-        <td colspan="4"><input type="text" id="inputBox" value="0" /></td>
+        <td colspan="4">
+          <input disabled type="text" id="inputBox" value="0" />
+        </td>
       </tr>
       <tr>
-        <td class="digitButton" onclick="digitBtnPressed(7)">7</td>
-        <td class="digitButton" onclick="digitBtnPressed(8)">8</td>
-        <td class="digitButton" onclick="digitBtnPressed(9)">9</td>
-        <td class="operatorButton" onclick="operatorBtnPressed('*')">x</td>
+        <td>
+          <div class="btn operatorButton" onclick="opBtnPressed('power2')">
+            x²
+          </div>
+        </td>
+        <td>
+          <div class="btn operatorButton" onclick="opBtnPressed('power3')">
+            x³
+          </div>
+        </td>
+        <td>
+          <div class="btn operatorButton" onclick="opBtnPressed('percent')">
+            %
+          </div>
+        </td>
+        <td>
+          <div class="btn operatorButton" onclick="operatorBtnPressed('/')">
+            /
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(7)">7</div>
+        </td>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(8)">8</div>
+        </td>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(9)">9</div>
+        </td>
+        <td>
+          <div class="btn operatorButton" onclick="operatorBtnPressed('*')">
+            x
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(4)">4</div>
+        </td>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(5)">5</div>
+        </td>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(6)">6</div>
+        </td>
+        <td>
+          <div class="btn operatorButton" onclick="operatorBtnPressed('-')">
+            -
+          </div>
+        </td>
       </tr>
       <tr>
-        <td class="digitButton" onclick="digitBtnPressed(4)">4</td>
-        <td class="digitButton" onclick="digitBtnPressed(5)">5</td>
-        <td class="digitButton" onclick="digitBtnPressed(6)">6</td>
-        <td class="operatorButton" onclick="operatorBtnPressed('-')">-</td>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(1)">1</div>
+        </td>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(2)">2</div>
+        </td>
+        <td>
+          <div class="btn digitButton" onclick="digitBtnPressed(3)">3</div>
+        </td>
+        <td>
+          <div class="btn operatorButton" onclick="operatorBtnPressed('+')">
+            +
+          </div>
+        </td>
       </tr>
       <tr>
-        <td class="digitButton" onclick="digitBtnPressed(1)">1</td>
-        <td class="digitButton" onclick="digitBtnPressed(2)">2</td>
-        <td class="digitButton" onclick="digitBtnPressed(3)">3</td>
-        <td class="operatorButton" onclick="operatorBtnPressed('+')">+</td>
-      </tr>
-      <tr>
-        <td class="digitButton" colspan="2" onclick="digitBtnPressed(0)">0</td>
-        <td class="ACButton" onclick="btnAcPressed()">AC</td>
-        <td class="operatorButton" onclick="operatorBtnPressed('/')">/</td>
-      </tr>
-      <tr>
-        <td class="operatorButton" colspan="4" onclick="equalsBtnPressed()">
-          =
+        <td colspan="2">
+          <div class="btn digitButton" onclick="digitBtnPressed(0)">0</div>
+        </td>
+        <td><div class="btn ACButton" onclick="btnAcPressed()">AC</div></td>
+        <td>
+          <div class="btn operatorButton" onclick="equalsBtnPressed()">=</div>
         </td>
       </tr>
     </table>
@@ -83,13 +138,42 @@
             finalTotal = value1 - value2;
             break;
           case "/":
-            finalTotal = value1 / value2;
+            // Prevent division by zero
+            finalTotal = value2 === 0 ? "0" : value1 / value2;
             break;
           case "*":
             finalTotal = value1 * value2;
             break;
+          default:
+            finalTotal = "0";
         }
+
         document.getElementById("inputBox").value = finalTotal;
+      }
+
+      //Eventhandler for square, cube, percentage and square root
+      function opBtnPressed(operation) {
+        const num = parseFloat(document.getElementById("inputBox").value);
+        let result;
+
+        // Perform the appropriate calculation
+        switch (operation) {
+          case "power2":
+            result = num ** 2; // Square
+            break;
+          case "power3":
+            result = num ** 3; // Cube
+            break;
+          case "sqrt":
+            result = Math.sqrt(num); // Square root
+            break;
+          case "percent":
+            result = num / 100; // Percentage
+            break;
+        }
+
+        // Display the result on the page
+        document.getElementById("inputBox").value = result;
       }
     </script>
   </body>

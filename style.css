@@ -1,5 +1,7 @@
-
 /*==============calculator css Start===================*/
+* {
+  background-color: #4e494d;
+}
 
 table {
   color: #fff;
@@ -10,7 +12,6 @@ table {
 
 tr {
   height: 16.92vh;
-  background-color: #4e494d;
 }
 
 td {
@@ -28,7 +29,7 @@ td {
 }
 
 .digitButton {
-  background-color: #807e80;
+  background-color: #252425;
 }
 
 .operatorButton {
@@ -37,6 +38,13 @@ td {
 
 .ACButton {
   background-color: #656165;
+}
+
+.btn {
+  margin: 5px 5px 5px 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 12px 20px;
 }
 
 /*==============calculator css end===================*/
