@@ -11,7 +11,7 @@ table {
 }
 
 tr {
-  height: 16.92vh;
+  height: 16vh;
 }
 
 td {
@@ -41,7 +41,7 @@ td {
 }
 
 .btn {
-  margin: 5px 5px 5px 5px;
+  margin: 15px;
   border-radius: 50px;
   cursor: pointer;
   padding: 12px 20px;
